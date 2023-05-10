@@ -12,6 +12,8 @@ def main(userAgent: str) -> str:
             return  'mobile'
         elif 'pad' in str(detector.device).lower():
             return 'tablet'
+        else:
+            return 'no type'
 
 
 # For local debugging
