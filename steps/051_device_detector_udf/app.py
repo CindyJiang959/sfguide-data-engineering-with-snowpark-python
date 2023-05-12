@@ -4,16 +4,8 @@ from device_detector import DeviceDetector
 def main(userAgent: str) -> str:
     detector = DeviceDetector(userAgent)
     detector.parse()
-    is_desktop = 1 if detector.is_desktop() else 0
-    if is_desktop:
-        return 'desktop'
-    elif detector.is_mobile():
-        if 'phone' in str(detector.device).lower():
-            return  'mobile'
-        elif 'pad' in str(detector.device).lower():
-            return 'tablet'
-        else:
-            return 'no type'
+    device_type = detector.device_type()
+    return 'mobile' if 'phone' in device_type or 'phablet' in device_type else device_type
 
 
 # For local debugging

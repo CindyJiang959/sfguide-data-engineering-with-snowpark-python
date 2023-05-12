@@ -2,15 +2,15 @@ snowsql_config_path = "~/.snowsql/config"
 snowsql_connection_name = "serko-nonprod"
 
 [default]
-input_parameters = "(userAgent varchar)"
+input_parameters = "(column varchar, sphere varchar, salt varchar)"
 return_type = "varchar"
 file = "app.zip"
-name = "device_detector_udf"
+name = "hash_array_udf"
 handler = "app.main"
 execute_as_caller = true
 
 [dev]
-database = "TRANSFORMATION_DEV"
+database = "SOURCE_DEV"
 schema = "UTILS"
 warehouse = "ETL_DEV_WH"
 role = "ETL_DEV"

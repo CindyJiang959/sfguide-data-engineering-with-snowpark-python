@@ -1,0 +1,3 @@
+select * from SOURCE_DEV.SALT.TOKENISATION_SALT
+where sphere = 'TENANTPERSONID'
+limit 100;
