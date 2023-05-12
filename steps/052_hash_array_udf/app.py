@@ -1,13 +1,17 @@
 import sys
 import hashlib
+import json
 
 def main(column :str, sphere: str, salt: str) -> str:
-    arr = column.split(',')
+    arr = json.loads(column)
     hashed_arr = []
     for value in arr:
-        value_sphere_salt = f'{value}{sphere}{salt}'
+        split_string = value.split(":")
+        trimmed_string = split_string[-1]
+        value_sphere_salt = f'{trimmed_string}{sphere}{salt}'
         hash_object = hashlib.sha256(value_sphere_salt.encode())
         hashed_arr.append(hash_object.hexdigest())
+        # hashed_arr.append(trimmed_string)
     return ','.join(hashed_arr)
 
 # For local debugging
