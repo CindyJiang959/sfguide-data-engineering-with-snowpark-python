@@ -3,4 +3,4 @@
 app.zip
 requirements.snowflake.txt
 __pycache__
-.tomls
+app.toml
